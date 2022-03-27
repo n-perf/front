@@ -1,5 +1,11 @@
+import LoadFile from './components/loadFile/LoadFile';
+
 function App() {
-  return <div className="App">ㅅㅂ</div>;
+	return (
+		<>
+			<LoadFile></LoadFile>
+		</>
+	);
 }
 
 export default App;

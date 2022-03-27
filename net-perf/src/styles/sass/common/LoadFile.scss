@@ -1,0 +1,49 @@
+@import './color.scss';
+
+div#LoadFile_container {
+	display: flex;
+	flex-direction: column;
+	// justify-content: center;
+}
+
+div#upload_container {
+	margin: 100px 20px 20px 20px;
+	padding: 100px;
+	background-color: $head;
+	// border: 1px solid #c4c4c420;
+	border-radius: 15px;
+	// justify-content: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+div.upload_div {
+	background-color: $head;
+	border: 1px solid #c4c4c420;
+	border-radius: 10px 10px 10px 10px;
+	position: relative;
+	justify-content: center;
+}
+
+label.uploadButton {
+	padding: 6px 25px;
+	background-color: $uploadButton;
+	border-radius: 4px;
+	color: $head;
+	cursor: pointer;
+}
+
+div#execute {
+	margin: 20px auto;
+	padding: 12px 40px;
+	background-color: $executeButton;
+	border-radius: 10px;
+	font-weight: bolder;
+
+	cursor: pointer;
+	// align-items: center;
+	// max-width: max-content;
+	// padding: 30px;
+	// width: 100%;
+}

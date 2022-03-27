@@ -1,0 +1,9 @@
+@import './color.scss';
+
+
+div#Output_div {
+    padding: 20px;
+    color: $text_color;
+    font-size: xx-large;
+    font-weight: bolder;
+}
