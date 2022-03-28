@@ -15,10 +15,11 @@ div#upload_container {
 
 div.upload_div {
   background-color: #161b22;
-  border: 1px solid #c4c4c420;
   border-radius: 10px 10px 10px 10px;
+  width: 20%;
   position: relative;
   justify-content: center;
+  text-align: center;
 }
 
 label.uploadButton {
