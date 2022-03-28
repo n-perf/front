@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 const LoadFile = props => {
+	const onExecuteClick = e => {
+		props.setOnRunning(true);
+	};
+
 	return (
 		<>
 			{/* 밑에 파일 선택 3개 컴포넌트화 필요 */}
@@ -25,7 +29,7 @@ const LoadFile = props => {
 						<input type="file" id="input-file" style={{ display: 'none' }} />{' '}
 					</div>
 				</div>
-				<div id="execute">
+				<div id="execute" onClick={onExecuteClick}>
 					<div>Performance Test</div>
 				</div>
 			</div>
