@@ -1,0 +1,18 @@
+@import './common/color.scss';
+@import './common/LoadFile.scss';
+@import './common/Output.scss';
+// 161B22
+
+body#root_body {
+	background-color: $root_background;
+	color: $text_color;
+}
+
+div#logo {
+	color: #f0f6fc;
+	padding: 15px;
+	background-color: $head;
+	border-radius: 10px;
+	font-size: xx-large;
+	font-weight: bolder;
+}

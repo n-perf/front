@@ -1,0 +1,115 @@
+div#LoadFile_container {
+  display: flex;
+  flex-direction: column;
+}
+
+div#upload_container {
+  margin: 100px 20px 20px 20px;
+  padding: 100px 100px 150px 100px;
+  background-color: #161b22;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+div.upload_div {
+  background-color: #161b22;
+  border-radius: 10px 10px 10px 10px;
+  width: 20%;
+  position: relative;
+  justify-content: center;
+  text-align: center;
+}
+
+label.uploadButton {
+  padding: 6px 25px;
+  background-color: #58a6ff;
+  border-radius: 4px;
+  color: #161b22;
+  cursor: pointer;
+}
+
+div#execute {
+  margin: 20px auto;
+  padding: 12px 40px;
+  background-color: #238636;
+  border-radius: 10px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+div#Output_container {
+  height: 270px;
+  margin: 100px 20px 20px 20px;
+  padding: 100px 50px 150px 50px;
+  background-color: #bdceaf;
+  border-radius: 15px;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+
+div#FtraceList_container {
+  margin: 10px;
+  padding: 10px;
+  width: 60%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+div#FtraceList_head {
+  border: 2px solid #0d1117;
+  border-radius: 3px;
+  padding: 2px;
+  display: flex;
+  flex-direction: row;
+  color: black;
+}
+
+div.FtraceList_item {
+  display: flex;
+  flex-direction: row;
+  color: #663434;
+}
+
+div.Timestamp {
+  width: 20%;
+}
+
+div.CPU {
+  width: 10%;
+}
+
+div.Delta {
+  width: 10%;
+}
+
+div.Functions {
+  padding: 0 0 0 15px;
+  width: 50%;
+}
+
+div#graph_container {
+  margin: 10px;
+  padding: 10px;
+  width: 50%;
+  height: 90%;
+}
+
+body#root_body {
+  background-color: #0d1117;
+  color: #f0f6fc;
+}
+
+div#logo {
+  color: #f0f6fc;
+  padding: 15px;
+  background-color: #161b22;
+  border-radius: 10px;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+/*# sourceMappingURL=main.css.map */
