@@ -1,15 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const Uploadbtn = props => {
-	// const [filenames, setFilenames] = useState('');
-	// props
-
-	// const chooseFile = e => {
-	// 	let file = e.target.files[0];
-	// 	// var file = inputRef.current.file[0];
-	// 	setFilenames(file.name);
-	// };
-
 	return (
 		<>
 			<div className="upload_div">
