@@ -54,8 +54,13 @@ div.Functions {
 }
 
 div#graph_container {
-	margin: 10px;
+	text-align: right;
+	margin: 0px;
 	padding: 10px;
 	width: 50%;
 	height: 90%;
+}
+
+div#check_container {
+	padding-right: 10px;
 }
