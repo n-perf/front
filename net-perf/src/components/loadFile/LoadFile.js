@@ -4,10 +4,6 @@ import Uploadbtn from './Uploadbtn';
 const LoadFile = props => {
 	const [filenames, setFilenames] = useState({ 0: '', 1: '', 2: '' });
 
-	useEffect(() => {
-		console.log('나타났을때만 호출', filenames);
-	}, [filenames]);
-
 	const onExecuteClick = e => {
 		props.setOnRunning(true);
 	};
