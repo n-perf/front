@@ -11,13 +11,13 @@ const LoadFile = props => {
 
 	const chooseFile = e => {
 		console.log(
-			'hhhh제발 좀 되라!!제발 좀 되라!!제발 좀 되라!!제발 좀 되라!!제발 좀 되라!!h1111111',
+			'TEST',
 		);
 		let file = e.target.files[0];
 		// var file = inputRef.current.file[0];
 		setFilenames([file.name, '', '']);
 		console.log(
-			'hhhh제발 좀 되라!!제발 좀 되라!!제발 좀 되라!!제발 좀 되라!!제발 좀 되라!!h222222',
+			'TEST',
 		);
 	};
 
