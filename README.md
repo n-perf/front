@@ -22,7 +22,7 @@ Based on the above issues, we are developing a net-perf that identifies the need
 Installation is straightforward.
 
 ```shell
-git clone https://github.com/pwndbg/pwndbg
+git clone https://github.com/n-perf/front.git
 cd net-perf
 npm install
 npm start
