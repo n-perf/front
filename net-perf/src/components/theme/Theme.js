@@ -3,14 +3,14 @@ import React, { useState } from 'react';
 const Theme = props => {
 	const [isActive, setActive] = useState('false');
 
-	const handleToggle = () => {
+	const toggle = () => {
 		setActive(!isActive);
 	};
 
 	return (
-		<div className={isActive ? 'light' : 'dark'}>
-			<button onClick={handleToggle}>change mode</button>
-		</div>
+		<button className={isActive ? 'light' : 'dark'} onClick={toggle}>
+			modeChange
+		</button>
 	);
 };
 
