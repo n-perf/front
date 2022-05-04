@@ -5,12 +5,15 @@ const Theme = props => {
 
 	const toggle = () => {
 		setActive(!isActive);
+		document.body.classList.toggle('root_body_light');
 	};
 
 	return (
-		<button className={isActive ? 'light' : 'dark'} onClick={toggle}>
-			modeChange
-		</button>
+		<div className="themeBtn">
+			<button className={isActive ? 'light' : 'dark'} onClick={toggle}>
+				Theme change
+			</button>
+		</div>
 	);
 };
 
