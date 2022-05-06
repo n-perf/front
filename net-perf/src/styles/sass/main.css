@@ -1,3 +1,4 @@
+@charset "UTF-8";
 div#LoadFile_container {
 	display: flex;
 	flex-direction: column;
@@ -95,19 +96,41 @@ div#FtraceList_container {
 	flex-direction: column;
 }
 
+#FtraceList_items {
+  overflow-y: scroll;
+}
+
+/* 스크롤바 설정*/
+#FtraceList_items::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* 스크롤바 막대 설정*/
+#FtraceList_items::-webkit-scrollbar-thumb {
+  height: 17%;
+  background-color: #161b22;
+  /* 스크롤바 둥글게 설정    */
+  border-radius: 10px;
+}
+
+/* 스크롤바 뒷 배경 설정*/
+#FtraceList_items::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0);
+}
+
 div#FtraceList_head {
-	border: 2px solid #0d1117;
-	border-radius: 3px;
-	padding: 2px;
-	display: flex;
-	flex-direction: row;
-	color: black;
+  border: 2px solid #0d1117;
+  border-radius: 3px;
+  padding: 2px;
+  display: flex;
+  flex-direction: row;
+  color: #000118;
 }
 
 div.FtraceList_item {
-	display: flex;
-	flex-direction: row;
-	color: #663434;
+  display: flex;
+  flex-direction: row;
+  color: #0b004a;
 }
 
 div.Timestamp {
