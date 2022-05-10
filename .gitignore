@@ -4,13 +4,13 @@
 /node_modules
 /.pnp
 .pnp.js
-/.vscode
+/.vscode/*
 .eslintcache
 # testing
 /coverage
 
 # production
-/build
+/build/*
 
 # misc
 .DS_Store
