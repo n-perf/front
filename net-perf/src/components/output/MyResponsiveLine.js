@@ -1,7 +1,9 @@
-import { ResponsiveLine } from '@nivo/line';
+import {ResponsiveLine} from '@nivo/line';
 import mydata from './Mydata';
-import tmp_data from '../../data/iperf3.json';
-import React, { useState, useEffect } from 'react';
+import before_data from '../../data/iperf3_b4.json';
+import after_data from '../../data/iperf3.json';
+
+import React, {useState, useEffect} from 'react';
 
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
@@ -10,42 +12,62 @@ import React, { useState, useEffect } from 'react';
 // you'll often use just a few of them.
 
 const MyResponsiveLine = props => {
-	// console.log(
-	// 	tmp_data.map((item, idx) => {
-	// 		return item;
-	// 	}),
-	// );
-
 	const [chartData, setChartData] = useState([
 		{
-			id: '2022-03-26',
-			color: 'hsl(33, 70%, 50%)',
-			data: tmp_data.intervals.map((item, idx) => {
-				return { x: String(item.streams[0].end), y: item.streams[0].bytes };
-			}),
+			bytes: [
+				{
+					id: '2022-03-26',
+					color: 'hsl(33, 70%, 50%)',
+					data: before_data.intervals.map((item, idx) => {
+						return {x: after_data.intervals[idx].streams[0].end, y: item.streams[0].bytes};
+						// { x: String(item.streams[0].end), y: item.streams[0].bytes + 5555300 }
+					}),
+				},
+				{
+					id: '2022-03-25',
+					color: 'hsl(45, 70%, 50%)',
+					data: after_data.intervals.map((item, idx) => {
+						return {x: item.streams[0].end, y: item.streams[0].bytes};
+					}),
+				},
+			],
+			bits_per_second: [
+				{
+					id: '2022-03-26',
+					color: 'hsl(33, 70%, 50%)',
+					data: before_data.intervals.map((item, idx) => {
+						return {
+							x: after_data.intervals[idx].streams[0].end,
+							y: item.streams[0].bits_per_second,
+						};
+					}),
+				},
+				{
+					id: '2022-03-29',
+					color: 'hsl(45, 70%, 50%)',
+					data: after_data.intervals.map((item, idx) => {
+						return {x: item.streams[0].end, y: item.streams[0].bits_per_second};
+					}),
+				},
+			],
 		},
-		,
 	]);
+
 	useEffect(() => {
 		console.log('chartData = >:::', chartData);
 		console.log('mydata = >:::', mydata);
 	}, [chartData]);
 
-	// const tmp = tmp_data.intervals.map((item, idx) => {
-	// 	return item.streams[0].bytes;
-	// });
-	// console.log(Xdata);
-
 	return (
 		<ResponsiveLine
-			data={chartData}
-			margin={{ top: 10, right: 10, bottom: 50, left: 60 }}
-			xScale={{ type: 'point' }}
+			data={props.checked ? chartData[0].bits_per_second : chartData[0].bytes}
+			margin={{top: 10, right: 10, bottom: 55, left: 80}}
+			xScale={{type: 'point'}}
 			yScale={{
 				type: 'linear',
 				min: 'auto',
 				max: 'auto',
-				stacked: true,
+				stacked: false,
 				reverse: false,
 			}}
 			yFormat=" >-.2f"
@@ -55,10 +77,10 @@ const MyResponsiveLine = props => {
 			axisBottom={{
 				orient: 'bottom',
 				tickSize: 5,
-				tickPadding: 5,
+				tickPadding: -5,
 				tickRotation: -60,
 				legend: 'seconds',
-				legendOffset: 36,
+				legendOffset: 45,
 				legendPosition: 'middle',
 			}}
 			axisLeft={{
@@ -66,8 +88,8 @@ const MyResponsiveLine = props => {
 				tickSize: 5,
 				tickPadding: 5,
 				tickRotation: 0,
-				legend: 'MBits/s',
-				legendOffset: -50,
+				legend: props.checked ? 'Mbits/sec' : 'MBytes',
+				legendOffset: -65,
 				legendPosition: 'middle',
 			}}
 			enableGridX={false}
