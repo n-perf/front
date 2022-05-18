@@ -91,6 +91,11 @@ function computeLcs(before, after) {
     return lcs;
 }
 
+function parseTime(timeString) {
+    let time = timeString.replace(/(\s*)/g, "").split('|')[0].split(')')[1].replace("us", "");
+    return parseFloat(time);
+}
+
 function diff(before, after, beforeFtrace, afterFtrace) {
     let lcs = computeLcs(before, after);
     let results = [];
@@ -131,6 +136,18 @@ function diff(before, after, beforeFtrace, afterFtrace) {
     return results.reverse();
 }
 
+function print_diff(results) {
+    for (let i = 4; i < results.length; i++) {
+        if (results[i - 4].action === diffAction.SAME) {
+            if (isNaN(results[i].time)) console.log("\t\t" + results[i].data);
+            else console.log(results[i].diff.toFixed(3) + "us\t" + results[i].data);
+        } else if (results[i - 4].action === diffAction.ADD) {
+            console.log("\t" + results[i - 4].data);
+        }
+    }
+}
+
 const before = beforeFtrace.split('\n');
 const after = afterFtrace.split('\n');
 let diffRes = diff(prepareDiff(before), prepareDiff(after), before, after);
+print_diff(diffRes, before, after);
