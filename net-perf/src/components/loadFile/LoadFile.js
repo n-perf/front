@@ -9,11 +9,26 @@ const LoadFile = props => {
 	};
 
 	const chooseFile = e => {
-		let index = parseInt(e.target.id);
-		setFilenames(prevState => ({
-			...prevState,
-			index: e.target.files[index].name,
-		}));
+		switch (e.target.id) {
+			case '0':
+				setFilenames(prevState => ({
+					...prevState,
+					0: e.target.files[0].name,
+				}));
+				break;
+			case '1':
+				setFilenames(prevState => ({
+					...prevState,
+					1: e.target.files[0].name,
+				}));
+				break;
+			case '2':
+				setFilenames(prevState => ({
+					...prevState,
+					2: e.target.files[0].name,
+				}));
+				break;
+		}
 	};
 
 	return (
