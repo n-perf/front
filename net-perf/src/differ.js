@@ -1,3 +1,4 @@
+// 더미 데이터 추가
 const beforeFtrace = "# tracer: function_graph\n" +
     "#\n" +
     "# CPU  DURATION                  FUNCTION CALLS\n" +
@@ -50,12 +51,14 @@ const afterFtrace = "# tracer: function_graph\n" +
     " 13)   0.130 us    |    is_hsr_master [hsr]();\n" +
     " 13)   3.110 us    |  }";
 
+// diff Action 정의
 const diffAction = {
     ADD: 1,
     DELETE: 2,
     SAME: 3,
 }
 
+// diff 를 위해 함수 데이터만 분리
 function prepareDiff(text) {
     let results = [];
 
@@ -66,6 +69,7 @@ function prepareDiff(text) {
     return results;
 }
 
+// lcs 배열 연산
 function computeLcs(before, after) {
     let beforeLen = before.length;
     let afterLen = after.length;
@@ -91,11 +95,13 @@ function computeLcs(before, after) {
     return lcs;
 }
 
+// 함수 실행 시간 파싱
 function parseTime(timeString) {
     let time = timeString.replace(/(\s*)/g, "").split('|')[0].split(')')[1].replace("us", "");
     return parseFloat(time);
 }
 
+// diff 연산 수행 후 { action : [ADD/DELETE/SAME], time : <걸린 시간>, diff: <실행 시간 차이>, data: <함수>} 형식의 배열으로 리턴
 function diff(before, after, beforeFtrace, afterFtrace) {
     let lcs = computeLcs(before, after);
     let results = [];
@@ -136,6 +142,7 @@ function diff(before, after, beforeFtrace, afterFtrace) {
     return results.reverse();
 }
 
+// 디버깅을 위한 diff 연산 출력 함수 추가
 function print_diff(results) {
     for (let i = 4; i < results.length; i++) {
         if (results[i - 4].action === diffAction.SAME) {
@@ -147,7 +154,9 @@ function print_diff(results) {
     }
 }
 
+// 기존 text 파일 데이터를 개행을 기준으로 자름
 const before = beforeFtrace.split('\n');
 const after = afterFtrace.split('\n');
+// diff 함수 호출
 let diffRes = diff(prepareDiff(before), prepareDiff(after), before, after);
 print_diff(diffRes, before, after);
