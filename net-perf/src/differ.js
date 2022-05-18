@@ -49,3 +49,16 @@ const afterFtrace = "# tracer: function_graph\n" +
     " 13)   0.140 us    |    hsr_port_exists [hsr]();\n" +
     " 13)   0.130 us    |    is_hsr_master [hsr]();\n" +
     " 13)   3.110 us    |  }";
+
+function prepareDiff(text) {
+    let results = [];
+
+    for (let i = 4; i < text.length; i++) {
+        results.push(text[i].split('|')[1]);
+    }
+
+    return results;
+}
+
+const before = beforeFtrace.split('\n');
+const after = afterFtrace.split('\n');
