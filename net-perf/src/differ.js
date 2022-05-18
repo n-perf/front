@@ -50,6 +50,12 @@ const afterFtrace = "# tracer: function_graph\n" +
     " 13)   0.130 us    |    is_hsr_master [hsr]();\n" +
     " 13)   3.110 us    |  }";
 
+const diffAction = {
+    ADD: 1,
+    DELETE: 2,
+    SAME: 3,
+}
+
 function prepareDiff(text) {
     let results = [];
 
@@ -85,5 +91,46 @@ function computeLcs(before, after) {
     return lcs;
 }
 
+function diff(before, after, beforeFtrace, afterFtrace) {
+    let lcs = computeLcs(before, after);
+    let results = [];
+
+    let i = before.length;
+    let j = after.length;
+    let time;
+
+    while (i !== 0 || j !== 0) {
+        if (i === 0) {
+            time = parseTime(afterFtrace[j + 3]);
+            results.push({action: diffAction.ADD, time: time, diff: time, data: after[j - 1]});
+            j -= 1;
+        } else if (j === 0) {
+            time = parseTime(beforeFtrace[i + 3]);
+            results.push({action: diffAction.DELETE, time: time, diff: time, data: before[i - 1]});
+            i -= 1;
+        } else if (before[i - 1] === after[j - 1]) {
+            results.push({
+                action: diffAction.SAME,
+                time: parseTime(afterFtrace[j + 3]),
+                diff: parseTime(afterFtrace[j + 3]) - parseTime(beforeFtrace[i + 3]),
+                data: before[i - 1]
+            });
+            i -= 1;
+            j -= 1;
+        } else if (lcs[i - 1][j] <= lcs[i][j - 1]) {
+            time = parseTime(afterFtrace[j + 3]);
+            results.push({action: diffAction.ADD, time: time, diff: time, data: after[j - 1]});
+            j -= 1;
+        } else {
+            time = parseTime(beforeFtrace[i + 3]);
+            results.push({action: diffAction.DELETE, time: time, diff: time, data: before[i - 1]});
+            i -= 1;
+        }
+    }
+
+    return results.reverse();
+}
+
 const before = beforeFtrace.split('\n');
 const after = afterFtrace.split('\n');
+let diffRes = diff(prepareDiff(before), prepareDiff(after), before, after);
