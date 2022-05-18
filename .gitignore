@@ -64,3 +64,4 @@ packages/react-devtools-shell/dist
 packages/react-devtools-timeline/dist
 
 net-perf/src/data/*
+package-lock.json
