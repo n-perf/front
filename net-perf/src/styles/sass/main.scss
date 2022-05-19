@@ -1,4 +1,9 @@
 @charset "UTF-8";
+@import './common/color.scss';
+@import './common/LoadFile.scss';
+@import './common/Output.scss';
+@import './common/LightTheme.scss';
+
 div#LoadFile_container {
 	display: flex;
 	flex-direction: column;
@@ -126,11 +131,6 @@ div#check_container {
 	padding-right: 10px;
 }
 
-body#root_body {
-	background-color: #0d1117;
-	color: #f0f6fc;
-}
-
 div#logo {
 	color: #f0f6fc;
 	padding: 15px;
@@ -138,6 +138,25 @@ div#logo {
 	border-radius: 10px;
 	font-size: xx-large;
 	font-weight: bolder;
+}
+
+.themeBtn {
+	display: flex;
+	justify-content: end;
+	padding: 20px;
+}
+
+.themeBtn button {
+	cursor: pointer;
+	border: 0px;
+	font-weight: bold;
+	padding: 10px 30px;
+	border-radius: 20px;
+}
+
+button.light {
+	background-color: #ffffff;
+	color: #161b22;
 }
 
 /*# sourceMappingURL=main.css.map */

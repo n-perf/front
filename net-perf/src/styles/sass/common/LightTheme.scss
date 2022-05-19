@@ -1,0 +1,69 @@
+body.root_body {
+	background-color: #0d1117;
+	color: #f0f6fc;
+}
+
+body.root_body_light {
+	background-color: #e0e0e0;
+	color: #f0f6fc;
+}
+
+body.root_body_light div#upload_container {
+	margin: 100px 20px 20px 20px;
+	padding: 100px 100px 150px 100px;
+	background-color: #ffffff;
+	border-radius: 15px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+body.root_body_light div.upload_div {
+	background-color: #ffffff;
+	border-radius: 10px 10px 10px 10px;
+	width: 20%;
+	position: relative;
+	justify-content: center;
+	text-align: center;
+}
+
+body.root_body_light label.uploadButton {
+	padding: 6px 25px;
+	background-color: #58a6ff;
+	border-radius: 4px;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+body.root_body_light div#execute {
+	margin: 20px auto;
+	padding: 12px 40px;
+	background-color: #2ab345;
+	border-radius: 10px;
+	font-weight: bolder;
+	cursor: pointer;
+}
+
+body.root_body_light {
+	background-color: #e0e0e0;
+	color: #f0f6fc;
+}
+
+body.root_body_light div#logo {
+	color: #000000;
+	padding: 15px;
+	background-color: #ffffff;
+	border-radius: 10px;
+	font-size: xx-large;
+	font-weight: bolder;
+}
+
+button.light {
+	background-color: #ffffff;
+	color: #161b22;
+}
+
+button.dark {
+	background-color: #161b22;
+	color: #ffffff;
+}
