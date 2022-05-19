@@ -10,13 +10,13 @@ const Output = props => {
 	return (
 		<>
 			<div id="Output_container">
-				<FtraceList></FtraceList>
+				<FtraceList Files={props.Files}></FtraceList>
 				<div id="graph_container">
 					<div id="check_container">
 						bits per second
 						<input type="checkbox" onChange={onChecked}/>
 					</div>
-					<MyResponsiveLine checked={checked}></MyResponsiveLine>
+					<MyResponsiveLine checked={checked} Files={props.Files}></MyResponsiveLine>
 				</div>
 			</div>
 		</>

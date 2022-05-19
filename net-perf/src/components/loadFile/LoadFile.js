@@ -9,11 +9,18 @@ const LoadFile = props => {
 	};
 
 	const chooseFile = e => {
+		console.log("파일 경로:",e.target.files[0])
+
 		switch (e.target.id) {
+			
 			case '0':
 				setFilenames(prevState => ({
 					...prevState,
 					0: e.target.files[0].name,
+				}));
+				props.setFiles(prevState => ({
+					...prevState,
+					0: e.target.files[0]
 				}));
 				break;
 			case '1':
@@ -21,12 +28,22 @@ const LoadFile = props => {
 					...prevState,
 					1: e.target.files[0].name,
 				}));
+				props.setFiles(prevState => ({
+					...prevState,
+					1: e.target.files[0]
+				}));
 				break;
 			case '2':
 				setFilenames(prevState => ({
 					...prevState,
 					2: e.target.files[0].name,
 				}));
+				props.setFiles(prevState => ({
+					...prevState,
+					2: e.target.files[0]
+				}));
+				break;
+			default:
 				break;
 		}
 	};

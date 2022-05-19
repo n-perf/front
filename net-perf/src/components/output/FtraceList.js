@@ -2,6 +2,17 @@ import React, { useState, useEffect } from 'react';
 import MyResponsiveLine from './MyResponsiveLine';
 
 const FtraceList = props => {
+	// 예외처리 필요
+	// useEffect( ()=> {
+	// console.log("파일:", props.Files[0])
+    // let fileReader = new FileReader();
+    // fileReader.onload = () => {
+    //   console.log(fileReader.result);
+    // };
+    // fileReader.readAsText(props.Files[0]);
+	// },[props])
+
+
 	return (
 		<>
 			<div id="FtraceList_container">
