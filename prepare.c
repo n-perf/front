@@ -42,6 +42,19 @@ void init_tracing() {
     if(option.verbose) printf("%s\n", "echo 'function_graph' > /sys/kernel/debug/tracing/current_tracer");
 }
 
+// clean trace result
+void clean_trace() {
+    system("echo > /sys/kernel/debug/tracing/trace");
+}
+
+// set tracing_on
+void start_trace() {
+    clean_trace();
+    system("echo 1 > /sys/kernel/debug/tracing/tracing_on");
+    if(option.verbose) printf("%s\n", "echo > /sys/kernel/debug/tracing/trace");
+    if(option.verbose) printf("%s\n", "echo 1 > /sys/kernel/debug/tracing/tracing_on");
+}
+
 // get available functions for tracing
 void get_available_filter_functions(char *module) {
     char cmd[MAX_COMMAND];
@@ -185,6 +198,8 @@ int main(int argc, char *argv[]) {
     init_tracing();
     get_available_filter_functions(option.module_name);
     set_available_filter_functions();
+
+    start_trace();
 
     return 0;
 }
