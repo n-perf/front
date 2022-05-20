@@ -45,17 +45,6 @@ div#execute {
 	cursor: pointer;
 }
 
-div#Output_container {
-	height: 270px;
-	margin: 100px 20px 20px 20px;
-	padding: 100px 50px 150px 50px;
-	background-color: #bdceaf;
-	border-radius: 15px;
-	justify-content: center;
-	display: flex;
-	flex-direction: row;
-}
-
 div#FtraceList_container {
 	margin: 10px;
 	padding: 10px;
@@ -85,21 +74,6 @@ div#FtraceList_container {
 /* 스크롤바 뒷 배경 설정*/
 #FtraceList_items::-webkit-scrollbar-track {
 	background-color: rgba(0, 0, 0, 0);
-}
-
-div#FtraceList_head {
-	border: 2px solid #0d1117;
-	border-radius: 3px;
-	padding: 2px;
-	display: flex;
-	flex-direction: row;
-	color: #000118;
-}
-
-div.FtraceList_item {
-	display: flex;
-	flex-direction: row;
-	color: #0b004a;
 }
 
 div.Timestamp {
@@ -163,6 +137,5 @@ button.light {
 	background-color: #ffffff;
 	color: #161b22;
 }
-
 
 /*# sourceMappingURL=main.css.map */

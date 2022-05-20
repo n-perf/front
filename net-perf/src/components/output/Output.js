@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import MyResponsiveLine from './MyResponsiveLine';
 import FtraceList from './FtraceList';
 const Output = props => {
@@ -12,9 +12,9 @@ const Output = props => {
 			<div id="Output_container">
 				<FtraceList Files={props.Files}></FtraceList>
 				<div id="graph_container">
-					<div id="check_container">
+					<div id="check_container" style={{ color: '#0d1117' }}>
 						bits per second
-						<input type="checkbox" onChange={onChecked}/>
+						<input type="checkbox" onChange={onChecked} />
 					</div>
 					<MyResponsiveLine checked={checked} Files={props.Files}></MyResponsiveLine>
 				</div>

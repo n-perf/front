@@ -11,7 +11,7 @@ const Theme = props => {
 	return (
 		<div className="themeBtn">
 			<button className={isActive ? 'light' : 'dark'} onClick={toggle}>
-				Theme
+				{isActive ? 'Day ☀️' : 'Night 🌙'}
 			</button>
 		</div>
 	);

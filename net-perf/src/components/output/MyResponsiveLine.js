@@ -43,8 +43,10 @@ const MyResponsiveLine = props => {
 							color: 'hsl(33, 70%, 50%)',
 							data: FileLoaded.before.intervals.map((item, idx) => {
 								return {
-									x: FileLoaded.after.intervals[idx].streams[0].end,
+									x: FileLoaded.after.intervals[idx].streams[0].end.toFixed(2),
 									y: item.streams[0].bytes,
+									// {parseInt(fluctuationCal(item.value, item.rate)).toLocaleString('ko-KR')}
+									// {item.rate.}
 								};
 							}),
 						},
@@ -52,7 +54,7 @@ const MyResponsiveLine = props => {
 							id: '2022-03-27',
 							color: 'hsl(45, 70%, 50%)',
 							data: FileLoaded.after.intervals.map((item, idx) => {
-								return { x: item.streams[0].end, y: item.streams[0].bytes };
+								return { x: item.streams[0].end.toFixed(2), y: item.streams[0].bytes };
 							}),
 						},
 					],
@@ -62,7 +64,7 @@ const MyResponsiveLine = props => {
 							color: 'hsl(33, 70%, 50%)',
 							data: FileLoaded.before.intervals.map((item, idx) => {
 								return {
-									x: FileLoaded.after.intervals[idx].streams[0].end,
+									x: FileLoaded.after.intervals[idx].streams[0].end.toFixed(2),
 									y: item.streams[0].bits_per_second,
 								};
 							}),
@@ -71,7 +73,7 @@ const MyResponsiveLine = props => {
 							id: '2022-03-27',
 							color: 'hsl(45, 70%, 50%)',
 							data: FileLoaded.after.intervals.map((item, idx) => {
-								return { x: item.streams[0].end, y: item.streams[0].bits_per_second };
+								return { x: item.streams[0].end.toFixed(2), y: item.streams[0].bits_per_second };
 							}),
 						},
 					],
@@ -103,7 +105,7 @@ const MyResponsiveLine = props => {
 				axisBottom={{
 					orient: 'bottom',
 					tickSize: 5,
-					tickPadding: -5,
+					tickPadding: 20,
 					tickRotation: -60,
 					legend: 'seconds',
 					legendOffset: 45,
@@ -120,7 +122,7 @@ const MyResponsiveLine = props => {
 				}}
 				enableGridX={false}
 				enableGridY={false}
-				colors={{ scheme: 'set2' }}
+				colors={{ scheme: 'category10' }}
 				pointSize={5}
 				pointColor={{ theme: 'background' }}
 				pointBorderWidth={2}

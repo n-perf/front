@@ -42,9 +42,9 @@ div#execute {
 
 div#Output_container {
   height: 270px;
-  margin: 100px 20px 20px 20px;
-  padding: 100px 50px 150px 50px;
-  background-color: #bdceaf;
+  margin: 50px 20px 20px 20px;
+  padding: 50px 50px 80px 50px;
+  background-color: #f7fafb;
   border-radius: 15px;
   justify-content: center;
   display: flex;
@@ -60,25 +60,25 @@ div#FtraceList_container {
   flex-direction: column;
 }
 
-#FtraceList_items {
+div#items_container {
   overflow-y: scroll;
 }
 
 /* 스크롤바 설정*/
-#FtraceList_items::-webkit-scrollbar {
-  width: 8px;
+#items_container::-webkit-scrollbar {
+  width: 6px;
 }
 
 /* 스크롤바 막대 설정*/
-#FtraceList_items::-webkit-scrollbar-thumb {
+#items_container::-webkit-scrollbar-thumb {
   height: 17%;
-  background-color: #161b22;
+  background-color: #cccccc;
   /* 스크롤바 둥글게 설정    */
   border-radius: 10px;
 }
 
 /* 스크롤바 뒷 배경 설정*/
-#FtraceList_items::-webkit-scrollbar-track {
+#items_container::-webkit-scrollbar-track {
   background-color: rgba(0, 0, 0, 0);
 }
 
@@ -88,13 +88,13 @@ div#FtraceList_head {
   padding: 2px;
   display: flex;
   flex-direction: row;
-  color: #000118;
+  color: #0d1117;
 }
 
 div.FtraceList_item {
   display: flex;
   flex-direction: row;
-  color: #0b004a;
+  color: #0d1117;
 }
 
 div.Timestamp {
@@ -237,17 +237,6 @@ div#execute {
   cursor: pointer;
 }
 
-div#Output_container {
-  height: 270px;
-  margin: 100px 20px 20px 20px;
-  padding: 100px 50px 150px 50px;
-  background-color: #bdceaf;
-  border-radius: 15px;
-  justify-content: center;
-  display: flex;
-  flex-direction: row;
-}
-
 div#FtraceList_container {
   margin: 10px;
   padding: 10px;
@@ -277,21 +266,6 @@ div#FtraceList_container {
 /* 스크롤바 뒷 배경 설정*/
 #FtraceList_items::-webkit-scrollbar-track {
   background-color: rgba(0, 0, 0, 0);
-}
-
-div#FtraceList_head {
-  border: 2px solid #0d1117;
-  border-radius: 3px;
-  padding: 2px;
-  display: flex;
-  flex-direction: row;
-  color: #000118;
-}
-
-div.FtraceList_item {
-  display: flex;
-  flex-direction: row;
-  color: #0b004a;
 }
 
 div.Timestamp {
