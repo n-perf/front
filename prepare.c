@@ -132,6 +132,17 @@ void set_available_filter_functions() {
     }
 }
 
+// save tracing result of module
+void save_tracing_res() {
+    char cmd[MAX_COMMAND];
+
+    strcpy(cmd, "cat /sys/kernel/debug/tracing/trace > ");
+    strcat(cmd, FTRACE_RES_PATH);
+    system(cmd);
+
+    if(option.verbose) printf("%s\n", cmd);
+}
+
 // initialize option
 void init_option(options *o) {
     o->before = false;
@@ -175,6 +186,8 @@ void print_usage() {
 }
 
 int main(int argc, char *argv[]) {
+    char answer[MAX_COMMAND];
+
     if (argc < 2) {
         fprintf(stderr, "[ERROR] Usage error\n");
         print_usage();
@@ -201,5 +214,13 @@ int main(int argc, char *argv[]) {
 
     start_trace();
 
+    while(1) {
+        printf("When the test is finished (y/n)? ");
+        fgets(answer, MAX_COMMAND, stdin);
+
+        if(!strcmp(answer, "y\n") || !strcmp(answer, "Y\n")) break;
+    }
+
+    save_tracing_res();
     return 0;
 }
