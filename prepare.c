@@ -32,6 +32,15 @@ void init_path(options *o) {
     else if(o->after) strcat(FTRACE_RES_PATH, ".after");
 }
 
+// initialize tracing
+void init_tracing() {
+    system("echo 0 > /sys/kernel/debug/tracing/tracing_on");
+    if(option.verbose) printf("%s\n", "echo 0 > /sys/kernel/debug/tracing/tracing_on");
+
+    system("echo 'function_graph' > /sys/kernel/debug/tracing/current_tracer");
+    if(option.verbose) printf("%s\n", "echo 'function_graph' > /sys/kernel/debug/tracing/current_tracer");
+}
+
 // initialize option
 void init_option(options *o) {
     o->before = false;
@@ -95,5 +104,7 @@ int main(int argc, char *argv[]) {
     }
 
     init_path(&option);
+    init_tracing();
+
     return 0;
 }
