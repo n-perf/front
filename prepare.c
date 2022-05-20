@@ -23,6 +23,15 @@ char WORKING_PATH[MAX_PATH];
 char FTRACE_RES_PATH[MAX_PATH];
 options option;
 
+// initialize path for results
+void init_path(options *o) {
+    strcpy(FTRACE_RES_PATH, WORKING_PATH);
+    strcat(FTRACE_RES_PATH, "/ftrace");
+
+    if(o->before) strcat(FTRACE_RES_PATH, ".before");
+    else if(o->after) strcat(FTRACE_RES_PATH, ".after");
+}
+
 // initialize option
 void init_option(options *o) {
     o->before = false;
@@ -80,5 +89,11 @@ int main(int argc, char *argv[]) {
         exit(1);
     }
 
+    if (getcwd(WORKING_PATH, MAX_PATH) == NULL) {
+        fprintf(stderr, "[ERROR] getcwd error\n");
+        exit(1);
+    }
+
+    init_path(&option);
     return 0;
 }
