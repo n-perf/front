@@ -7,6 +7,7 @@
 
 #define MAX_PATH        1024
 #define MAX_COMMAND     1024
+#define MAX_READ_SIZE   1024
 #define MAX_STR         200
 
 struct options {
@@ -39,6 +40,83 @@ void init_tracing() {
 
     system("echo 'function_graph' > /sys/kernel/debug/tracing/current_tracer");
     if(option.verbose) printf("%s\n", "echo 'function_graph' > /sys/kernel/debug/tracing/current_tracer");
+}
+
+// get available functions for tracing
+void get_available_filter_functions(char *module) {
+    char cmd[MAX_COMMAND];
+
+    strcpy(cmd, "cat /sys/kernel/debug/tracing/available_filter_functions");
+    strcat(cmd, " | grep ");
+    strcat(cmd, module);
+    strcat(cmd, " | sort > ");
+    strcat(cmd, FTRACE_RES_PATH);
+
+    if(option.verbose) printf("%s\n", cmd);
+    system(cmd);
+}
+
+// set function filter for tracing
+void set_available_filter_function(char *func) {
+    char cmd[MAX_COMMAND];
+
+    strcpy(cmd, "echo ");
+    strcat(cmd, "'");
+    strcat(cmd, func);
+    strcat(cmd, "' >> ");
+    strcat(cmd, "/sys/kernel/debug/tracing/set_graph_function");
+
+    if(option.verbose) printf("%s\n", cmd);
+    system(cmd);
+}
+
+// set functions filter for tracing
+void set_available_filter_functions() {
+    char function[MAX_READ_SIZE];
+    char buffer[MAX_READ_SIZE];
+    char answer[MAX_COMMAND];
+    int fd, i, index;
+    ssize_t size;
+    bool bracket;
+
+    if((fd = open(FTRACE_RES_PATH, O_RDONLY)) < 0) {
+        fprintf(stderr, "[ERROR] %s open error\n", FTRACE_RES_PATH);
+        exit(1);
+    }
+
+    while((size = read(fd, buffer, MAX_READ_SIZE)) > 0) {
+        index = 0;
+        bracket = false;
+        for(i = 0; i < size; i++) {
+            if(buffer[i] == '[') {
+                bracket = true;
+            }
+            else if(buffer[i] == ']') {
+                bracket = false;
+            }
+            else if(bracket || buffer[i] == ' ') {
+                continue;
+            }
+            else if(buffer[i] == '\n') {
+                function[index] = '\0';
+                printf("[add] add function \"%s\" on ftrace (y/n)? ", function);
+                fgets(answer, MAX_COMMAND, stdin);
+
+                if(!strcmp(answer, "y\n") || !strcmp(answer, "Y\n") || !strcmp(answer, "\n")) {
+                    if(!strcmp(answer, "\n")) printf("\n");
+                    set_available_filter_function(function);
+                }
+                index = 0;
+            }
+            else {
+                function[index++] = buffer[i];
+            }
+        }
+        if(lseek(fd, index * -1, SEEK_CUR) < 0) {
+            fprintf(stderr, "[ERROR] lseek error\n");
+            exit(1);
+        }
+    }
 }
 
 // initialize option
@@ -105,6 +183,8 @@ int main(int argc, char *argv[]) {
 
     init_path(&option);
     init_tracing();
+    get_available_filter_functions(option.module_name);
+    set_available_filter_functions();
 
     return 0;
 }
