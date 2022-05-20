@@ -57,9 +57,18 @@ void parse_option(int argc, char *argv[], options *o) {
     }
 }
 
+// print usage of this program
+void print_usage() {
+    printf("USAGE:\n");
+    printf("  > net-perf -b -a -m [MODULE_NAME]\n");
+    printf("    >> -b : before\n");
+    printf("    >> -a : after\n");
+}
+
 int main(int argc, char *argv[]) {
     if (argc < 2) {
         fprintf(stderr, "[ERROR] Usage error\n");
+        print_usage();
         exit(1);
     }
 
@@ -67,6 +76,7 @@ int main(int argc, char *argv[]) {
     parse_option(argc, argv, &option);
     if (option.err || !option.module || (!option.before && !option.after)) {
         fprintf(stderr, "[ERROR] Usage error\n");
+        print_usage();
         exit(1);
     }
 
