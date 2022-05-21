@@ -189,7 +189,6 @@ int main(int argc, char *argv[]) {
     char answer[MAX_COMMAND];
 
     if (argc < 2) {
-        fprintf(stderr, "[ERROR] Usage error\n");
         print_usage();
         exit(1);
     }
@@ -197,7 +196,6 @@ int main(int argc, char *argv[]) {
     init_option(&option);
     parse_option(argc, argv, &option);
     if (option.err || !option.module || (!option.before && !option.after)) {
-        fprintf(stderr, "[ERROR] Usage error\n");
         print_usage();
         exit(1);
     }
