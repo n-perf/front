@@ -180,9 +180,10 @@ void parse_option(int argc, char *argv[], options *o) {
 // print usage of this program
 void print_usage() {
     printf("USAGE:\n");
-    printf("  > net-perf -b -a -m [MODULE_NAME]\n");
+    printf("  > prepare -b -a -m [KERNEL_MODULE_NAME]\n");
     printf("    >> -b : before\n");
     printf("    >> -a : after\n");
+    printf("    >> -m [KERNEL_MODULE_NAME] : setting module name for tracing\n");
 }
 
 int main(int argc, char *argv[]) {
