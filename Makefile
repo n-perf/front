@@ -1,6 +1,6 @@
 CC = gcc
 
-TARGET = main
+TARGET = prepare
 
 all : $(TARGET)
 
