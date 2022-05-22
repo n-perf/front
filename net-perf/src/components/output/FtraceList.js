@@ -79,9 +79,9 @@ const FtraceList = props => {
 				return (
 					<div
 						className={
-							TracingResult[index].action === 3
+							TracingResult[index].diff === 0 || isNaN(TracingResult[index].diff)
 								? 'FtraceList_item'
-								: TracingResult[index].action === 1
+								: TracingResult[index].diff > 0
 								? 'FtraceList_item_added'
 								: 'FtraceList_item_deleted'
 						}
