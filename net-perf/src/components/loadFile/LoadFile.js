@@ -1,18 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import Uploadbtn from './Uploadbtn';
 
 const LoadFile = props => {
-	const [filenames, setFilenames] = useState({ 0: '', 1: '', 2: '' });
+	const [filenames, setFilenames] = useState({ 0: '', 1: '', 2: '', 3: '' });
 
 	const onExecuteClick = e => {
 		props.setOnRunning(true);
 	};
 
 	const chooseFile = e => {
-		console.log("파일 경로:",e.target.files[0])
-
 		switch (e.target.id) {
-			
 			case '0':
 				setFilenames(prevState => ({
 					...prevState,
@@ -20,7 +17,7 @@ const LoadFile = props => {
 				}));
 				props.setFiles(prevState => ({
 					...prevState,
-					0: e.target.files[0]
+					0: e.target.files[0],
 				}));
 				break;
 			case '1':
@@ -30,7 +27,7 @@ const LoadFile = props => {
 				}));
 				props.setFiles(prevState => ({
 					...prevState,
-					1: e.target.files[0]
+					1: e.target.files[0],
 				}));
 				break;
 			case '2':
@@ -40,7 +37,17 @@ const LoadFile = props => {
 				}));
 				props.setFiles(prevState => ({
 					...prevState,
-					2: e.target.files[0]
+					2: e.target.files[0],
+				}));
+				break;
+			case '3':
+				setFilenames(prevState => ({
+					...prevState,
+					3: e.target.files[0].name,
+				}));
+				props.setFiles(prevState => ({
+					...prevState,
+					3: e.target.files[0],
 				}));
 				break;
 			default:
@@ -55,6 +62,7 @@ const LoadFile = props => {
 					<Uploadbtn seq={'0'} filenames={filenames[0]} chooseFile={chooseFile}></Uploadbtn>
 					<Uploadbtn seq={'1'} filenames={filenames[1]} chooseFile={chooseFile}></Uploadbtn>
 					<Uploadbtn seq={'2'} filenames={filenames[2]} chooseFile={chooseFile}></Uploadbtn>
+					<Uploadbtn seq={'3'} filenames={filenames[3]} chooseFile={chooseFile}></Uploadbtn>
 				</div>
 				<div id="execute" onClick={onExecuteClick}>
 					<div>Performance Test</div>

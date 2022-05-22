@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 
 function App() {
 	const [onRunning, setOnRunning] = useState(false);
-	const [Files, setFiles] = useState({ 0: false, 1: false, 2: false });
+	const [Files, setFiles] = useState({ 0: false, 1: false, 2: false, 3: false });
 
 	useEffect(() => {
 		console.log('files:', Files);

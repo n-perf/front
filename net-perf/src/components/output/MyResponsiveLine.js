@@ -7,9 +7,9 @@ const MyResponsiveLine = props => {
 	useEffect(() => {
 		if (
 			props.Files[1] &&
-			props.Files[2] &&
+			props.Files[3] &&
 			props.Files[1].name.substr(props.Files[1].name.length - 5, 5) === '.json' &&
-			props.Files[2].name.substr(props.Files[2].name.length - 5, 5) === '.json'
+			props.Files[3].name.substr(props.Files[3].name.length - 5, 5) === '.json'
 		) {
 			var fileReader_1 = new FileReader();
 			fileReader_1.onload = function (e) {
@@ -29,7 +29,7 @@ const MyResponsiveLine = props => {
 					after: json,
 				}));
 			};
-			fileReader_2.readAsText(props.Files[2]);
+			fileReader_2.readAsText(props.Files[3]);
 		}
 	}, []);
 
@@ -39,19 +39,17 @@ const MyResponsiveLine = props => {
 				{
 					bytes: [
 						{
-							id: '2022-03-26',
+							id: 'before',
 							color: 'hsl(33, 70%, 50%)',
 							data: FileLoaded.before.intervals.map((item, idx) => {
 								return {
 									x: FileLoaded.after.intervals[idx].streams[0].end.toFixed(2),
 									y: item.streams[0].bytes,
-									// {parseInt(fluctuationCal(item.value, item.rate)).toLocaleString('ko-KR')}
-									// {item.rate.}
 								};
 							}),
 						},
 						{
-							id: '2022-03-27',
+							id: 'after',
 							color: 'hsl(45, 70%, 50%)',
 							data: FileLoaded.after.intervals.map((item, idx) => {
 								return { x: item.streams[0].end.toFixed(2), y: item.streams[0].bytes };
@@ -60,7 +58,7 @@ const MyResponsiveLine = props => {
 					],
 					bits_per_second: [
 						{
-							id: '2022-03-26',
+							id: 'before',
 							color: 'hsl(33, 70%, 50%)',
 							data: FileLoaded.before.intervals.map((item, idx) => {
 								return {
@@ -70,7 +68,7 @@ const MyResponsiveLine = props => {
 							}),
 						},
 						{
-							id: '2022-03-27',
+							id: 'after',
 							color: 'hsl(45, 70%, 50%)',
 							data: FileLoaded.after.intervals.map((item, idx) => {
 								return { x: item.streams[0].end.toFixed(2), y: item.streams[0].bits_per_second };
@@ -84,8 +82,7 @@ const MyResponsiveLine = props => {
 
 	const [chartData, setChartData] = useState(false);
 
-	const chooseFile = e => {
-		console.log(chartData[0].bytes);
+	const renderChart = e => {
 		return (
 			<ResponsiveLine
 				data={props.checked ? chartData[0].bits_per_second : chartData[0].bytes}
@@ -163,7 +160,7 @@ const MyResponsiveLine = props => {
 	};
 
 	return chartData
-		? chooseFile()
+		? renderChart()
 		: 'The file format is invalid. \n Please upload the file in Json format';
 };
 export default MyResponsiveLine;
