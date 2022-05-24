@@ -4,21 +4,6 @@
 @import './common/Output.scss';
 @import './common/LightTheme.scss';
 
-div#LoadFile_container {
-	display: flex;
-	flex-direction: column;
-}
-
-div#upload_container {
-	margin: 100px 20px 20px 20px;
-	padding: 100px 100px 150px 100px;
-	background-color: #161b22;
-	border-radius: 15px;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-}
-
 div.upload_div {
 	background-color: #161b22;
 	border-radius: 10px 10px 10px 10px;
@@ -45,17 +30,6 @@ div#execute {
 	cursor: pointer;
 }
 
-div#Output_container {
-	height: 270px;
-	margin: 100px 20px 20px 20px;
-	padding: 100px 50px 150px 50px;
-	background-color: #bdceaf;
-	border-radius: 15px;
-	justify-content: center;
-	display: flex;
-	flex-direction: row;
-}
-
 div#FtraceList_container {
 	margin: 10px;
 	padding: 10px;
@@ -63,43 +37,6 @@ div#FtraceList_container {
 	height: 90%;
 	display: flex;
 	flex-direction: column;
-}
-
-#FtraceList_items {
-	overflow-y: scroll;
-}
-
-/* 스크롤바 설정*/
-#FtraceList_items::-webkit-scrollbar {
-	width: 8px;
-}
-
-/* 스크롤바 막대 설정*/
-#FtraceList_items::-webkit-scrollbar-thumb {
-	height: 17%;
-	background-color: #161b22;
-	/* 스크롤바 둥글게 설정    */
-	border-radius: 10px;
-}
-
-/* 스크롤바 뒷 배경 설정*/
-#FtraceList_items::-webkit-scrollbar-track {
-	background-color: rgba(0, 0, 0, 0);
-}
-
-div#FtraceList_head {
-	border: 2px solid #0d1117;
-	border-radius: 3px;
-	padding: 2px;
-	display: flex;
-	flex-direction: row;
-	color: #000118;
-}
-
-div.FtraceList_item {
-	display: flex;
-	flex-direction: row;
-	color: #0b004a;
 }
 
 div.Timestamp {
@@ -129,6 +66,11 @@ div#graph_container {
 
 div#check_container {
 	padding-right: 10px;
+}
+
+body#root_body {
+	background-color: #0d1117;
+	color: #f0f6fc;
 }
 
 div#logo {

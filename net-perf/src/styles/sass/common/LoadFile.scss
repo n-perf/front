@@ -26,6 +26,14 @@ div.upload_div {
 	position: relative;
 	justify-content: center;
 	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+
+img.upload_img {
+	width: 30px;
+	height: 30px;
+	object-fit: cover;
 }
 
 label.uploadButton {
