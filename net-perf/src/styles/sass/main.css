@@ -5,8 +5,8 @@ div#LoadFile_container {
 }
 
 div#upload_container {
-  margin: 100px 20px 20px 20px;
-  padding: 100px 100px 150px 100px;
+  margin: 50px 20px 20px 20px;
+  padding: 50px 100px 150px 100px;
   background-color: #161b22;
   border-radius: 15px;
   display: flex;
@@ -48,6 +48,16 @@ div#execute {
   cursor: pointer;
 }
 
+div.head_btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+div.blank {
+  width: 70%;
+}
+
 div#Output_container {
   height: 270px;
   margin: 50px 20px 20px 20px;
@@ -68,6 +78,14 @@ div#FtraceList_container {
   flex-direction: column;
 }
 
+div#graph_container {
+  text-align: right;
+  margin: 0px;
+  padding: 10px;
+  width: 50%;
+  height: 90%;
+}
+
 div#items_container {
   overflow-y: scroll;
 }
@@ -80,7 +98,7 @@ div#items_container {
 /* 스크롤바 막대 설정*/
 #items_container::-webkit-scrollbar-thumb {
   height: 17%;
-  background-color: rgb(204, 204, 204);
+  background-color: #cccccc;
   /* 스크롤바 둥글게 설정    */
   border-radius: 10px;
 }
@@ -156,14 +174,6 @@ div.Functions {
   width: 50%;
 }
 
-div#graph_container {
-  text-align: right;
-  margin: 0px;
-  padding: 10px;
-  width: 50%;
-  height: 90%;
-}
-
 div#check_container {
   padding-right: 10px;
 }
@@ -192,14 +202,7 @@ body.root_body_light div#title_container .desc {
 }
 
 body.root_body_light div#upload_container {
-  margin: 100px 20px 20px 20px;
-  padding: 100px 100px 150px 100px;
   background-color: #ffffff;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  color: #000000;
 }
 
 body.root_body_light div.upload_div {
@@ -209,6 +212,7 @@ body.root_body_light div.upload_div {
   position: relative;
   justify-content: center;
   text-align: center;
+  color: #0d1117;
 }
 
 body.root_body_light label.uploadButton {
@@ -235,7 +239,6 @@ body.root_body_light {
 
 body.root_body_light div#logo {
   color: #000000;
-  padding: 15px;
   background-color: #ffffff;
   border-radius: 10px;
   font-size: xx-large;
@@ -250,6 +253,10 @@ button.light {
 button.dark {
   background-color: #161b22;
   color: #ffffff;
+}
+
+div.themeBtn {
+  float: right;
 }
 
 .guideBtn {
@@ -268,7 +275,6 @@ button.dark {
   font-weight: bold;
   text-align: center;
   padding: 8px 24px;
-  margin-right: 50px;
   border-radius: 20px;
 }
 .btn-jittery {
@@ -353,14 +359,6 @@ div.Functions {
   width: 50%;
 }
 
-div#graph_container {
-  text-align: right;
-  margin: 0px;
-  padding: 10px;
-  width: 50%;
-  height: 90%;
-}
-
 div#check_container {
   padding-right: 10px;
 }
@@ -372,7 +370,6 @@ body#root_body {
 
 div#logo {
   color: #f0f6fc;
-  padding: 15px;
   background-color: #161b22;
   border-radius: 10px;
   font-size: xx-large;
@@ -406,9 +403,9 @@ div#title_container {
   color: #f0f6fc;
   border-radius: 10px;
 }
-div#title_container .desc {
+div#title_container #desc {
   font-size: small;
-  font-weight: bolder;
+  font-weight: 900;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -21,6 +21,14 @@ div#FtraceList_container {
 	flex-direction: column;
 }
 
+div#graph_container {
+	text-align: right;
+	margin: 0px;
+	padding: 10px;
+	width: 50%;
+	height: 90%;
+}
+
 div#items_container {
 	overflow-y: scroll;
 }
@@ -107,14 +115,6 @@ div.Delta {
 div.Functions {
 	padding: 0 0 0 15px;
 	width: 50%;
-}
-
-div#graph_container {
-	text-align: right;
-	margin: 0px;
-	padding: 10px;
-	width: 50%;
-	height: 90%;
 }
 
 div#check_container {
