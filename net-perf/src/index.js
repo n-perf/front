@@ -5,7 +5,12 @@ import './styles/sass/main.css';
 
 ReactDOM.render(
 	<React.StrictMode>
-		<div id="logo">🌐 net-perf</div>
+		<div id = "title_container">
+		<div id ="logo">
+		🌐 net-perf
+		</div>
+		<div id = "desc">View result of network performance</div>
+		</div>
 		<App />
 	</React.StrictMode>,
 	document.getElementById('root'),

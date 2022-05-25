@@ -3,7 +3,7 @@
 @import './common/LoadFile.scss';
 @import './common/Output.scss';
 @import './common/LightTheme.scss';
-
+@import './common/guide.scss';
 div.upload_div {
 	background-color: #161b22;
 	border-radius: 10px 10px 10px 10px;
@@ -99,6 +99,20 @@ div#logo {
 button.light {
 	background-color: #ffffff;
 	color: #161b22;
+}
+
+div#title_container{
+	display: flex;
+	padding: 15px;
+	flex-direction: column;
+	background-color: #161b22;
+	color: #f0f6fc;
+	border-radius: 10px;
+
+	.desc {
+		font-size: small;
+		font-weight: bolder;
+	}
 }
 
 /*# sourceMappingURL=main.css.map */
