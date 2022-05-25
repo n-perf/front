@@ -1,0 +1,58 @@
+.guideBtn {
+	display: flex;
+	margin: 10px;
+	justify-content:end;
+	padding: 20px;
+}
+
+.btn {
+	cursor: pointer;
+	background-color: #58a6ff;
+	justify-content: end;
+	border: 0px;
+	margin: 1rem;
+	font-weight: bold;
+	text-align: center;
+	padding: 8px 24px;
+	margin-right: 50px;
+	border-radius: 20px;
+	&-jittery {
+	  animation: jittery 8s infinite;
+	}
+
+  @keyframes jittery {
+	5%,
+	50% {
+	  transform: scale(1);
+	}
+  
+	10% {
+	  transform: scale(0.9);
+	}
+  
+	15% {
+	  transform: scale(1.15);
+	}
+  
+	20% {
+	  transform: scale(1.15) rotate(-5deg);
+	}
+  
+	25% {
+	  transform: scale(1.15) rotate(5deg);
+	}
+  
+	30% {
+	  transform: scale(1.15) rotate(-3deg);
+	}
+  
+	35% {
+	  transform: scale(1.15) rotate(2deg);
+	}
+  
+	40% {
+	  transform: scale(1.15) rotate(0);
+	}
+  }
+  
+  }
