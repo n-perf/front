@@ -17,6 +17,10 @@ const Output = props => {
 						<input type="checkbox" onChange={onChecked} />
 					</div>
 					<MyResponsiveLine checked={checked} Files={props.Files}></MyResponsiveLine>
+					<div className="explain_container" style={{ color: '#161b22' }}>
+						before:&nbsp;
+						<div id="explain_color_1"></div>&nbsp;after:&nbsp;<div id="explain_color_2"></div>
+					</div>
 				</div>
 			</div>
 		</>
