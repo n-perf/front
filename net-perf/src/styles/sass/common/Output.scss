@@ -120,3 +120,24 @@ div.Functions {
 div#check_container {
 	padding-right: 10px;
 }
+
+div.explain_container {
+	padding-right: 10px;
+	display: flex;
+	flex-direction: row;
+	float: right;
+	text-align: right;
+}
+
+div#explain_color_1 {
+	border-radius: 1px;
+	padding: 5px;
+	margin: 3px;
+	background-color: #ff7f0e;
+}
+div#explain_color_2 {
+	border-radius: 1px;
+	padding: 5px;
+	margin: 3px;
+	background-color: #1f77b4;
+}
