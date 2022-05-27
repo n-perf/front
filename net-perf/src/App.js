@@ -27,9 +27,14 @@ function App() {
 	return (
 		<>
 			<div className="head_btns">
-				<ShepherdTour steps={newSteps} tourOptions={tourOptions}>
-					<Guide />
-				</ShepherdTour>
+				{onRunning === false ? (
+					<ShepherdTour steps={newSteps} tourOptions={tourOptions}>
+						<Guide />
+					</ShepherdTour>
+				) : (
+					<></>
+				)}
+
 				<div className="blank"></div>
 				<Theme></Theme>
 			</div>
