@@ -32,7 +32,7 @@ const Uploadbtn = props => {
 			<div className="upload_div" id={returnID()}>
 				<div className="upload_img">
 					<img
-						src={props.seq === '0' || props.seq === '1' ? ftrace_img : iperf3_img}
+						src={props.seq === '0' || props.seq === '2' ? ftrace_img : iperf3_img}
 						alt="btnimg"
 					/>
 				</div>

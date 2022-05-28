@@ -28,7 +28,7 @@ const FtraceList = props => {
 					...prevState,
 					before: fileReader1.result
 						.split('\n')
-						.slice(5)
+						.slice(4)
 						.map((item, index) => {
 							if (item.split('|').length !== 1) {
 								return item;
@@ -46,7 +46,7 @@ const FtraceList = props => {
 					...prevState,
 					after: fileReader2.result
 						.split('\n')
-						.slice(5)
+						.slice(4)
 						.map((item, index) => {
 							if (item.split('|').length !== 1) {
 								return item;
@@ -87,11 +87,11 @@ const FtraceList = props => {
 						}
 					>
 						<div className="Timestamp">
-							{isNaN(TracingResult[index].time) ? '' : TracingResult[index].time}
+							{isNaN(TracingResult[index].time) ? '' : TracingResult[index].time + 'us'}
 						</div>
 						<div className="CPU">{TracingResult[index].cpu}</div>
 						<div className="Delta">
-							{isNaN(TracingResult[index].diff) ? '' : TracingResult[index].diff.toFixed(3)}
+							{isNaN(TracingResult[index].diff) ? '' : TracingResult[index].diff.toFixed(3) + 'us'}
 						</div>
 						<div className="Functions" style={{ whiteSpace: 'pre' }}>
 							{TracingResult[index].data}
