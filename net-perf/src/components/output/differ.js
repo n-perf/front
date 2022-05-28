@@ -6,9 +6,15 @@ const diffAction = {
 
 export function prepareDiff(text) {
 	let results = [];
-	for (let i = 4; i < text.length; i++) {
-		if (text[i].split('|')[1] !== undefined) {
-			results.push(text[i][1] + text[i].split('|')[1]);
+	let sp;
+	console.log(text);
+	console.log('\n');
+	for (let i = 0; i < text.length; i++) {
+		sp = text[i].split('|')[1];
+		if (sp.length > 1) {
+			if (text[i].split('|')[1] !== undefined) {
+				results.push(text[i][1] + text[i].split('|')[1]);
+			}
 		}
 	}
 
@@ -64,68 +70,60 @@ export function diff(before, after, beforeFtrace, afterFtrace) {
 		if (i === 0) {
 			time = parseTime(afterFtrace[j + 3]);
 
-			if (time !== '') {
-				results.push({
-					action: diffAction.ADD,
-					time: time,
-					diff: time,
-					data: after[j - 1].slice(1),
-					cpu: after[j - 1][0],
-				});
-			}
+			results.push({
+				action: diffAction.ADD,
+				time: time,
+				diff: time,
+				data: after[j - 1].slice(1),
+				cpu: (isNaN(after[j - 1][0])) ? '': after[j - 1][0],
+			});
 			j -= 1;
 		} else if (j === 0) {
 			time = parseTime(beforeFtrace[i + 3]);
-			if (time !== '') {
-				results.push({
-					action: diffAction.DELETE,
-					time: time,
-					diff: time,
-					data: before[i - 1].slice(1),
-					cpu: before[i - 1][0],
-				});
-			}
+			results.push({
+				action: diffAction.DELETE,
+				time: time,
+				diff: time,
+				data: before[i - 1].slice(1),
+				cpu: (isNaN(before[i - 1][0])) ? '': before[i - 1][0],
+			});
 			i -= 1;
 		} else if (before[i - 1] === after[j - 1]) {
-			if (time !== '') {
-				results.push({
-					action: diffAction.SAME,
-					time: parseTime(afterFtrace[j + 3]),
-					diff: parseTime(afterFtrace[j + 3]) - parseTime(beforeFtrace[i + 3]),
-					data: before[i - 1].slice(1),
-					cpu: before[i - 1][0],
-				});
-			}
+			results.push({
+				action: diffAction.SAME,
+				time: parseTime(afterFtrace[j + 3]),
+				diff: parseTime(afterFtrace[j + 3]) - parseTime(beforeFtrace[i + 3]),
+				data: before[i - 1].slice(1),
+				cpu: (isNaN(before[i - 1][0])) ? '': before[i - 1][0],
+			});
 			i -= 1;
 			j -= 1;
 		} else if (lcs[i - 1][j] <= lcs[i][j - 1]) {
 			time = parseTime(afterFtrace[j + 3]);
-			if (time !== '') {
-				results.push({
-					action: diffAction.ADD,
-					time: time,
-					diff: time,
-					data: after[j - 1].slice(1),
-					cpu: after[j - 1][0],
-				});
-			}
+			results.push({
+				action: diffAction.ADD,
+				time: time,
+				diff: time,
+				data: after[j - 1].slice(1),
+				cpu: (isNaN(after[j - 1][0])) ? '': after[j - 1][0],
+			});
 			j -= 1;
 		} else {
 			time = parseTime(beforeFtrace[i + 3]);
-			if (time !== '') {
-				results.push({
-					action: diffAction.DELETE,
-					time: time,
-					diff: time,
-					data: before[i - 1].slice(1),
-					cpu: before[i - 1][0],
-				});
-			}
+			results.push({
+				action: diffAction.DELETE,
+				time: time,
+				diff: time,
+				data: before[i - 1].slice(1),
+				cpu: (isNaN(before[i - 1][0])) ? '': before[i - 1][0],
+			});
 			i -= 1;
 		}
 	}
 
-	return results.reverse();
+	let r = results.reverse();
+	console.log(r);
+	return r;
 }
 
 // 디버깅을 위한 diff 연산 출력 함수 추가
