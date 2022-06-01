@@ -29,7 +29,7 @@ npm start
 ```
 After uploading each of the .json file, iperf3 file, and ftrace file, simply click 'test performance'.
 
-## Examples 
+## Prepare Usage
 Typically, you access it through the CLI interface to use ftrace. However, in this case, the disadvantage is that the process of entering the tracing command into the /sys/kernel/debug/tracing path every time a test is performed is very cumbersome. In addition, to meet the requirements of measuring performance accurately or to be very sensitive to latency, the user thought it would be much more efficient to set the trace at the start of performance measurement, collect tracing data, and refine it immediately.
 
 The prepare module measures the tracing data during the performance measurement period by executing it at the beginning of the performance measurement by entering the result value at the prompt to confirm that the performance measurement is finished. These prepare modules consist of initialization, function registration, and result storage steps. First, in the initialization step, a file path for storing the existing ftrace data is set, the existing tracing result data is deleted, and the current_tracer value is set to function_graph in order to check the call depth of the function and the execution time of each function. The figure is the code of the ftrace initialization part in the prepare module.
