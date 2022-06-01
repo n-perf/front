@@ -41,7 +41,8 @@ During the kernel build process, if the module's build option is not configured 
   ![커널 빌드 옵션](https://user-images.githubusercontent.com/61650992/170805882-063c2e3d-d9eb-4b00-9299-910148445236.png)
   
 Therefore, in this case, it is necessary to first load the corresponding kernel module. Whether the module is loaded or not can be confirmed through the lsmod command as shown in Figure.
- ![커널모듈로딩여부](https://user-images.githubusercontent.com/61650992/170806168-aba6d751-68ea-4dda-90cf-867685a1b5af.png)
+
+  ![커널모듈로딩여부](https://user-images.githubusercontent.com/61650992/170806168-aba6d751-68ea-4dda-90cf-867685a1b5af.png)
   
   Once the module is loaded, a traceable list of functions can be obtained using available_filter_functions in ftrace. Based on this list, the user registers a function to be traced in the performance measurement process. ftrace provides an API called set_graph_fuction to trace a specific function, and it constructs a list of functions to filter by registering the function name in the file. Below is a part of the function registration step code to be traced, and a list of functions that can be traced in ftrace according to the kernel module name is taken, and functions that want to be analyzed for performance are selected and registered. After that, tracing is performed based on the registered function.
 ![트레이싱할 함수 등록](https://user-images.githubusercontent.com/61650992/170806422-5199566b-8dc0-490f-bc06-3d4fd6bfdd4e.png)
