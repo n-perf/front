@@ -4,25 +4,25 @@ import iperf3_img from '../../images/iperf3.png';
 
 const Uploadbtn = props => {
 	const renderText = () => {
-		if (props.seq == '0') {
+		if (props.seq === '0') {
 			return 'Load Trace File (Before)';
-		} else if (props.seq == '1') {
+		} else if (props.seq === '1') {
 			return 'Add iperf3 File (Before)';
-		} else if (props.seq == '2') {
+		} else if (props.seq === '2') {
 			return 'Load Trace File (After)';
-		} else if (props.seq == '3') {
+		} else if (props.seq === '3') {
 			return 'Add iperf3 File (After)';
 		}
 	};
 
 	const returnID = () => {
-		if (props.seq == '0') {
+		if (props.seq === '0') {
 			return 'upload_btn1';
-		} else if (props.seq == '1') {
+		} else if (props.seq === '1') {
 			return 'upload_btn2';
-		} else if (props.seq == '2') {
+		} else if (props.seq === '2') {
 			return 'upload_btn3';
-		} else if (props.seq == '3') {
+		} else if (props.seq === '3') {
 			return 'upload_btn4';
 		}
 	};

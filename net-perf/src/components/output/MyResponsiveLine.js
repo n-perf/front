@@ -42,17 +42,19 @@ const MyResponsiveLine = props => {
 							id: 'before',
 							color: 'hsl(33, 70%, 50%)',
 							data: FileLoaded.before.intervals.map((item, idx) => {
-								return {
-									x: FileLoaded.after.intervals[idx].streams[0].end.toFixed(2),
-									y: item.streams[0].bytes,
-								};
+								if (FileLoaded.after.intervals[idx].streams[0].end.toFixed(2) <= 10)
+									return {
+										x: FileLoaded.after.intervals[idx].streams[0].end.toFixed(2),
+										y: item.streams[0].bytes,
+									};
 							}),
 						},
 						{
 							id: 'after',
 							color: 'hsl(45, 70%, 50%)',
 							data: FileLoaded.after.intervals.map((item, idx) => {
-								return { x: item.streams[0].end.toFixed(2), y: item.streams[0].bytes };
+								if (item.streams[0].end.toFixed(2) <= 10)
+									return { x: item.streams[0].end.toFixed(2), y: item.streams[0].bytes };
 							}),
 						},
 					],
@@ -61,17 +63,19 @@ const MyResponsiveLine = props => {
 							id: 'before',
 							color: 'hsl(33, 70%, 50%)',
 							data: FileLoaded.before.intervals.map((item, idx) => {
-								return {
-									x: FileLoaded.after.intervals[idx].streams[0].end.toFixed(2),
-									y: item.streams[0].bits_per_second,
-								};
+								if (FileLoaded.after.intervals[idx].streams[0].end.toFixed(2) <= 10)
+									return {
+										x: FileLoaded.after.intervals[idx].streams[0].end.toFixed(2),
+										y: item.streams[0].bits_per_second,
+									};
 							}),
 						},
 						{
 							id: 'after',
 							color: 'hsl(45, 70%, 50%)',
 							data: FileLoaded.after.intervals.map((item, idx) => {
-								return { x: item.streams[0].end.toFixed(2), y: item.streams[0].bits_per_second };
+								if (item.streams[0].end.toFixed(2) <= 10)
+									return { x: item.streams[0].end.toFixed(2), y: item.streams[0].bits_per_second };
 							}),
 						},
 					],
@@ -86,7 +90,7 @@ const MyResponsiveLine = props => {
 		return (
 			<ResponsiveLine
 				data={props.checked ? chartData[0].bits_per_second : chartData[0].bytes}
-				margin={{ top: 10, right: 10, bottom: 55, left: 80 }}
+				margin={{ top: 20, right: 10, bottom: 55, left: 80 }}
 				xScale={{ type: 'point' }}
 				yScale={{
 					type: 'linear',
@@ -105,7 +109,7 @@ const MyResponsiveLine = props => {
 					tickPadding: 20,
 					tickRotation: -60,
 					legend: 'seconds',
-					legendOffset: 45,
+					legendOffset: 50,
 					legendPosition: 'middle',
 				}}
 				axisLeft={{
@@ -129,32 +133,6 @@ const MyResponsiveLine = props => {
 				areaBlendMode="multiply"
 				areaOpacity={0.5}
 				useMesh={true}
-				legends={[
-					{
-						anchor: 'bottom-right',
-						direction: 'column',
-						justify: false,
-						translateX: 100,
-						translateY: 0,
-						itemsSpacing: 0,
-						itemDirection: 'left-to-right',
-						itemWidth: 80,
-						itemHeight: 20,
-						itemOpacity: 0.75,
-						symbolSize: 12,
-						symbolShape: 'circle',
-						symbolBorderColor: 'rgba(0, 0, 0, .5)',
-						effects: [
-							{
-								on: 'hover',
-								style: {
-									itemBackground: 'rgba(0, 0, 0, .03)',
-									itemOpacity: 1,
-								},
-							},
-						],
-					},
-				]}
 			/>
 		);
 	};
