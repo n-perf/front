@@ -9,11 +9,11 @@ const Theme = props => {
 	};
 
 	return (
-		<div className="themeBtn">
+		<span className="themeBtn">
 			<button className={isActive ? 'light' : 'dark'} onClick={toggle}>
 				{isActive ? 'Day ☀️' : 'Night 🌙'}
 			</button>
-		</div>
+		</span>
 	);
 };
 
