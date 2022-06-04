@@ -94,6 +94,7 @@ div#logo {
 	font-weight: bold;
 	padding: 10px 30px;
 	border-radius: 20px;
+	width: 120px;
 }
 
 button.light {
@@ -101,7 +102,7 @@ button.light {
 	color: #161b22;
 }
 
-div#title_container{
+div#title_container {
 	display: flex;
 	padding: 15px;
 	flex-direction: column;
