@@ -76,6 +76,7 @@ const FtraceList = props => {
 	const renderFtrace = items => {
 		return items.map((item, index) => {
 			if (index < N_Scroll * 50) {
+				console.log('뭔데', TracingResult[index].diff);
 				return (
 					<div
 						className={
@@ -91,7 +92,9 @@ const FtraceList = props => {
 						</div>
 						<div className="CPU">{TracingResult[index].cpu}</div>
 						<div className="Delta">
-							{isNaN(TracingResult[index].diff) ? '' : TracingResult[index].diff.toFixed(3) + 'us'}
+							{TracingResult[index].diff === '' || isNaN(TracingResult[index].diff)
+								? ''
+								: TracingResult[index].diff.toFixed(3) + 'us'}
 						</div>
 						<div className="Functions" style={{ whiteSpace: 'pre' }}>
 							{TracingResult[index].data}
@@ -106,9 +109,9 @@ const FtraceList = props => {
 		<>
 			<div id="FtraceList_container">
 				<div id="FtraceList_head">
-					<div className="Timestamp">Timestamp</div>
+					<div className="Timestamp">Timestamp(us)</div>
 					<div className="CPU">CPU</div>
-					<div className="Delta">Delta</div>
+					<div className="Delta">Delta(us)</div>
 					<div className="Functions">Functions</div>
 				</div>
 				<div id="items_container" onScroll={onScroll}>

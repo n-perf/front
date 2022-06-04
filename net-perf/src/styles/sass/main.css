@@ -6,7 +6,7 @@ div#LoadFile_container {
 
 div#upload_container {
   margin: 50px 20px 20px 20px;
-  padding: 50px 100px 150px 100px;
+  padding: 70px 100px 70px 100px;
   background-color: #161b22;
   border-radius: 15px;
   display: flex;
@@ -32,6 +32,7 @@ img.upload_img {
 }
 
 label.uploadButton {
+  margin-top: 20px;
   padding: 6px 25px;
   background-color: #58a6ff;
   border-radius: 4px;
@@ -336,14 +337,6 @@ div.upload_div {
   position: relative;
   justify-content: center;
   text-align: center;
-}
-
-label.uploadButton {
-  padding: 6px 25px;
-  background-color: #58a6ff;
-  border-radius: 4px;
-  color: #161b22;
-  cursor: pointer;
 }
 
 div#execute {
